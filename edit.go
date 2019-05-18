@@ -86,10 +86,22 @@ func (s *server) handleEdit(w http.ResponseWriter, r *http.Request) {
 const hello = `package main
 
 import (
-	"fmt"
+	"play.ground/foo"
 )
 
 func main() {
-	fmt.Println("Hello, playground")
+	foo.Bar()
+}
+
+-- go.mod --
+module play.ground
+
+-- foo/foo.go --
+package foo
+
+import "fmt"
+
+func Bar() {
+	fmt.Println("The Go playground now has support for multiple files!")
 }
 `
