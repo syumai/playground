@@ -13,6 +13,13 @@ export default function reducer(state: IState = INITIAL_STATE, action: Action) {
       return state;
     }
 
+    case 'SWITCH_TAB': {
+      return {
+        ...state,
+        activeTabIndex: action.index,
+      };
+    }
+
     case 'ADD_TAB': {
       // Unimplemented
       return state;

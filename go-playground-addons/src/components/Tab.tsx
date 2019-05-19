@@ -6,9 +6,13 @@ type TabProps = {
 };
 
 const Tab: React.FC<TabProps> = ({ index }) => {
-  const { tab, removeTab } = useTab(index);
+  const { tab, switchTab, removeTab } = useTab(index);
+  const classNames = ['tab'];
+  if (tab.active) {
+    classNames.push('active');
+  }
   return (
-    <div className="tab">
+    <div className={classNames.join(' ')} onClick={switchTab}>
       <div className="tab-title">{tab.key}</div>
       <div className="tab-delete-button" onClick={removeTab}>
         ×

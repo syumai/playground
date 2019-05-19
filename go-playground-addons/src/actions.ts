@@ -6,6 +6,10 @@ export type Action =
       type: 'DISABLE_TABS';
     }
   | {
+      type: 'SWITCH_TAB';
+      index: number;
+    }
+  | {
       type: 'ADD_TAB';
       key: string;
     }

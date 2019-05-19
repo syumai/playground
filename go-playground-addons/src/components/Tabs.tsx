@@ -1,7 +1,6 @@
 import React, { useCallback } from 'react';
-import { useMappedState } from 'redux-react-hook';
 import Tab from './Tab';
-import { IState } from '../store';
+import { IState, useMappedState } from '../store';
 
 const Tabs: React.FC = () => {
   const { tabCount } = useMappedState(
@@ -14,11 +13,11 @@ const Tabs: React.FC = () => {
   );
 
   return (
-    <div className="tabs">
+    <>
       {new Array(tabCount).fill(null).map((_, index) => (
         <Tab index={index} key={index} />
       ))}
-    </div>
+    </>
   );
 };
 
