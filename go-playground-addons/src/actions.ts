@@ -1,5 +1,3 @@
-import { TabFile, Tab } from './models';
-
 export type Action =
   | {
       type: 'ENABLE_TABS';
@@ -8,27 +6,21 @@ export type Action =
       type: 'DISABLE_TABS';
     }
   | {
-      type: 'CREATE_FILE';
+      type: 'ADD_TAB';
       key: string;
     }
   | {
-      type: 'UPDATE_FILE';
+      type: 'UPDATE_TAB';
+      index: number;
       key: string;
       body: string;
     }
   | {
-      type: 'ADD_TAB';
-      file: TabFile;
-    }
-  | {
-      type: 'REMOVE_FILE';
-      key: string;
-    }
-  | {
       type: 'REMOVE_TAB';
-      key: string;
+      index: number;
     }
   | {
       type: 'MOVE_TAB';
-      index: number;
+      fromIndex: number;
+      toIndex: number;
     };

@@ -6,11 +6,10 @@ export function splitToTabs(body: string): Tab[] {
 
 export function concatTabs(tabs: Tab[]): string {
   return tabs
-    .sort((a, b) => a.order - b.order)
     .map(
-      ({ file }) =>
-        `-- ${file.key} --
-    ${file.body}`
+      ({ key, body }) =>
+        `-- ${key} --
+    ${body}`
     )
     .join('\n\n');
 }

@@ -2,16 +2,14 @@ import { createStore, Store } from 'redux';
 import { create } from 'redux-react-hook';
 import { Action } from './actions';
 import reducer from './reducer';
-import { TabFile, Tab } from './models';
+import { Tab } from './models';
 
 export type IState = {
-  files: TabFile[];
   tabs: Tab[];
   tabsEnabled: boolean;
 };
 
 export const INITIAL_STATE: IState = {
-  files: [],
   tabs: [],
   tabsEnabled: false,
 };

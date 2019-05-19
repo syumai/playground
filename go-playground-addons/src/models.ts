@@ -1,9 +1,4 @@
-export type TabFile = {
+export type Tab = {
   key: string;
   body: string;
-};
-
-export type Tab = {
-  file: TabFile;
-  order: number;
 };

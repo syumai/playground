@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+import Tabs from './components/Tabs';
 import * as serviceWorker from './serviceWorker';
 import { makeStore, StoreContext } from './store';
 
@@ -15,7 +15,7 @@ const store = makeStore();
   //   wrapper.insertAdjacentHTML('afterbegin', '<div id="tabs"></div>');
   ReactDOM.render(
     <StoreContext.Provider value={store}>
-      <App />
+      <Tabs />
     </StoreContext.Provider>,
     document.getElementById('tabs')
   );

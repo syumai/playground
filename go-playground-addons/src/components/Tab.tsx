@@ -1,13 +1,20 @@
 import React from 'react';
+import { useTab } from '../hooks';
 
-const Tab: React.FC = ({ title }) => {
+type TabProps = {
+  index: number;
+};
+
+const Tab: React.FC<TabProps> = ({ index }) => {
+  const { tab, removeTab } = useTab(index);
   return (
     <div className="tab">
-      <div className="tab-title">{title}</div>
-      <div className="tab-delete-button">×</div>
+      <div className="tab-title">{tab.key}</div>
+      <div className="tab-delete-button" onClick={removeTab}>
+        ×
+      </div>
     </div>
   );
 };
-Tab.contextTypes;
 
 export default Tab;
