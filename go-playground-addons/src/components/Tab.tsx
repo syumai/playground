@@ -11,10 +11,17 @@ const Tab: React.FC<TabProps> = ({ index }) => {
   if (tab.active) {
     classNames.push('active');
   }
+  const removeTabWithConfirmation = () => {
+    if (window.confirm('Are you sure you want to close this tab?')) {
+      removeTab();
+    }
+  };
   return (
-    <div className={classNames.join(' ')} onClick={switchTab}>
-      <div className="tab-title">{tab.key}</div>
-      <div className="tab-delete-button" onClick={removeTab}>
+    <div className={classNames.join(' ')}>
+      <div className="tab-title" onClick={switchTab}>
+        {tab.key}
+      </div>
+      <div className="tab-delete-button" onClick={removeTabWithConfirmation}>
         ×
       </div>
     </div>

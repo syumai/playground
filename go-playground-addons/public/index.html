@@ -63,6 +63,9 @@
             $(this).is(':checked') ? 'true' : ''
           );
         });
+
+        $('#codeAddon').linedtextarea();
+        $('#codeAddon').attr('wrap', 'off');
       });
 
       function createCookie(name, value) {
@@ -110,32 +113,15 @@
       </div>
     </div>
     <div id="wrap">
-      <div id="tabs">
-        <div class="tab">
-          <div class="tab-title">
-            src/compressor/compress.go
-          </div>
-          <div class="tab-delete-button">
-            ×
-          </div>
-        </div>
-        <div class="tab active">
-          <div class="tab-title">
-            src/main.go
-          </div>
-          <div class="tab-delete-button">
-            ×
-          </div>
-        </div>
-        <div class="tab">
-          <div class="tab-title">
-            src/compressor/misc.go
-          </div>
-          <div class="tab-delete-button">
-            ×
-          </div>
-        </div>
-      </div>
+      <div id="tabs"></div>
+      <textarea
+        itemprop="description"
+        id="codeAddon"
+        autocorrect="off"
+        autocomplete="off"
+        autocapitalize="off"
+        spellcheck="false"
+      ></textarea>
       <textarea
         itemprop="description"
         id="code"

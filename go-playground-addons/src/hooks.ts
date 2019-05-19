@@ -1,4 +1,4 @@
-import { useCallback, useEffect } from 'react';
+import { useCallback } from 'react';
 import { Tab } from './models';
 import { useDispatch, useMappedState } from './store';
 import { IState } from './store';
@@ -25,8 +25,10 @@ export function useTab(
   const dispatch = useDispatch();
 
   const switchTab = useCallback(() => {
-    const codeArea = document.getElementById('code') as HTMLInputElement;
-    codeArea.value = tab.body;
+    const codeAddonArea = document.getElementById(
+      'codeAddon'
+    ) as HTMLInputElement;
+    codeAddonArea.value = tab.body;
     dispatch({ type: 'SWITCH_TAB', index });
   }, [dispatch, index, tab.body]);
 
