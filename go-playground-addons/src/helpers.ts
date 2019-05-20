@@ -31,7 +31,7 @@ export function concatTabs(tabs: Tab[]): string {
     .map(
       ({ key, body }) =>
         `-- ${key} --
-    ${body}`
+${body}`
     )
     .join('\n\n');
 }
