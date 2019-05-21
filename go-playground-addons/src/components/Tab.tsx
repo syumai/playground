@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useTab } from '../hooks';
+import { codeAddonRepo } from '../repository';
 
 type TabProps = {
   index: number;

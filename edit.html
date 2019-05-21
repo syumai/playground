@@ -3,6 +3,7 @@
 	<head>
 		<title>The Go Playground</title>
 		<link rel="stylesheet" href="/static/style.css">
+		<link rel="stylesheet" href="/static/addon.css">
 		{{if .Analytics}}
 		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-11222381-7"></script>
 		<script>
@@ -126,32 +127,6 @@
 			</div>
 		</div>
 		<div id="wrap">
-			<div id="tabs">
-                <div class="tab">
-					<div class="tab-title">
-						src/compressor/compress.go
-					</div>
-                    <div class="tab-delete-button">
-                        ×
-					</div>
-				</div>
-				<div class="tab active">
-					<div class="tab-title">
-						src/main.go
-					</div>
-					<div class="tab-delete-button">
-						×
-					</div>
-				</div>
-				<div class="tab">
-					<div class="tab-title">
-						src/compressor/misc.go
-					</div>
-					<div class="tab-delete-button">
-						×
-					</div>
-				</div>
-			</div>
 			<textarea itemprop="description" id="code" name="code" autocorrect="off" autocomplete="off" autocapitalize="off" spellcheck="false">{{printf "%s" .Snippet.Body}}</textarea>
 		</div>
 		<div id="output"></div>
@@ -225,5 +200,8 @@ Any requests for content removal should be directed to
 Please include the URL and the reason for the request.
 </p>
 		</div>
+<script crossorigin src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+<script src="/static/bundle.js"></script>
 	</body>
 </html>

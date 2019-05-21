@@ -41,8 +41,12 @@ export default function reducer(state: IState = INITIAL_STATE, action: Action) {
 
     case 'REMOVE_TAB': {
       const tabs = [...state.tabs];
+      if (tabs.length === 1) {
+        return state;
+      }
       tabs.splice(action.index, 1);
-      return { ...state, tabs };
+      const activeTabIndex = action.index === 0 ? 0 : action.index - 1;
+      return { ...state, activeTabIndex, tabs };
     }
 
     case 'MOVE_TAB': {

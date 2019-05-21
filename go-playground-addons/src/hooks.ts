@@ -1,8 +1,8 @@
-import { useCallback } from 'react';
+import { useCallback, useEffect } from 'react';
 import { Tab } from './models';
 import { useDispatch, useMappedState } from './store';
-import { codeAddonRepo } from './repository';
 import { IState } from './store';
+import { codeAddonRepo } from './repository';
 
 export function useTabs(): {
   tabs: Tab[];
@@ -42,10 +42,15 @@ export function useTab(
     )
   );
 
+  useEffect(() => {
+    if (tab.active) {
+      codeAddonRepo.save(tab.body);
+    }
+  }, [tab.active]);
+
   const dispatch = useDispatch();
 
   const switchTab = useCallback(() => {
-    codeAddonRepo.save(tab.body);
     dispatch({ type: 'SWITCH_TAB', index });
   }, [dispatch, index, tab.body]);
 

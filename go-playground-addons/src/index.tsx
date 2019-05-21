@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
 import Tabs from './components/Tabs';
 import { initStore, StoreContext } from './store';
 import { codeRepo } from './repository';
