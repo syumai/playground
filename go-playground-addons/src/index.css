@@ -202,6 +202,19 @@ input[type='button'],
   font-size: 12px;
   background-color: #ccc;
 }
+#tabs .tab-button {
+  display: flex;
+  width: 20px;
+  height: 24px;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  font-size: 12px;
+  background-color: #eee;
+}
+#tabs .tab-button:hover {
+  background-color: #fff;
+}
 #tabs .tab.active {
   cursor: default;
   background-color: #fff;

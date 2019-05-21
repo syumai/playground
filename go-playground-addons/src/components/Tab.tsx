@@ -12,7 +12,7 @@ const Tab: React.FC<TabProps> = ({ index }) => {
     classNames.push('active');
   }
   const removeTabWithConfirmation = () => {
-    if (window.confirm('Are you sure you want to close this tab?')) {
+    if (window.confirm('Are you sure you want to remove this file?')) {
       removeTab();
     }
   };

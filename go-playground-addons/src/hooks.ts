@@ -1,7 +1,27 @@
 import { useCallback } from 'react';
 import { Tab } from './models';
 import { useDispatch, useMappedState } from './store';
+import { codeAddonRepo } from './repository';
 import { IState } from './store';
+
+export function useTabs(): {
+  tabs: Tab[];
+  addTab: (tab: Tab) => void;
+} {
+  const tabs = useMappedState(
+    useCallback((state: IState) => [...state.tabs], [])
+  );
+
+  const dispatch = useDispatch();
+
+  const addTab = useCallback(
+    ({ key, body }) => {
+      dispatch({ type: 'ADD_TAB', key, body });
+    },
+    [dispatch]
+  );
+  return { tabs, addTab };
+}
 
 export function useTab(
   index: number
@@ -25,10 +45,7 @@ export function useTab(
   const dispatch = useDispatch();
 
   const switchTab = useCallback(() => {
-    const codeAddonArea = document.getElementById(
-      'codeAddon'
-    ) as HTMLInputElement;
-    codeAddonArea.value = tab.body;
+    codeAddonRepo.save(tab.body);
     dispatch({ type: 'SWITCH_TAB', index });
   }, [dispatch, index, tab.body]);
 

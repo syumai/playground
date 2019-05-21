@@ -21,8 +21,12 @@ export default function reducer(state: IState = INITIAL_STATE, action: Action) {
     }
 
     case 'ADD_TAB': {
-      // Unimplemented
-      return state;
+      const tabs = [...state.tabs];
+      tabs.push({
+        key: action.key,
+        body: action.body,
+      });
+      return { ...state, tabs };
     }
 
     case 'UPDATE_TAB': {

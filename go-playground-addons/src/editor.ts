@@ -2,7 +2,7 @@ import { Store } from 'redux';
 import { IState } from './store';
 import { Action } from './actions';
 import { concatTabs } from './helpers';
-import repo from './repository';
+import { codeRepo } from './repository';
 import { Tab } from './models';
 
 export class Editor {
@@ -22,7 +22,6 @@ export class Editor {
         // enter
         if (e.shiftKey) {
           this.save();
-          console.log(repo.load());
           const runBtn = document.getElementById('run') as HTMLInputElement;
           runBtn.click();
           e.preventDefault();
@@ -64,7 +63,7 @@ export class Editor {
       key: this.activeTab.key,
       body: this.el.value,
     });
-    repo.save(concatTabs(this.tabs));
+    codeRepo.save(concatTabs(this.tabs));
   }
 
   insertTabs(n: number) {

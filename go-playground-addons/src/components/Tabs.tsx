@@ -1,5 +1,6 @@
 import React, { useCallback } from 'react';
 import Tab from './Tab';
+import AddTabButton from './AddTabButton';
 import { IState, useMappedState } from '../store';
 
 const Tabs: React.FC = () => {
@@ -17,6 +18,7 @@ const Tabs: React.FC = () => {
       {new Array(tabCount).fill(null).map((_, index) => (
         <Tab index={index} key={index} />
       ))}
+      <AddTabButton />
     </>
   );
 };

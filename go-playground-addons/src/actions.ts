@@ -12,6 +12,7 @@ export type Action =
   | {
       type: 'ADD_TAB';
       key: string;
+      body: string;
     }
   | {
       type: 'UPDATE_TAB';

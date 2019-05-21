@@ -3,12 +3,12 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import Tabs from './components/Tabs';
 import { initStore, StoreContext } from './store';
-import repo from './repository';
+import { codeRepo } from './repository';
 import { Editor } from './editor';
 import { initDOM } from './dom';
 
 initDOM();
-const store = initStore(repo.load());
+const store = initStore(codeRepo.load());
 new Editor(store);
 
 ReactDOM.render(
