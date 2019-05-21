@@ -1,24 +1,24 @@
 export class CodeRepository {
-  private codeArea: HTMLInputElement | null;
+  private el: HTMLInputElement | null;
   constructor() {
-    this.codeArea = null;
+    this.el = null;
   }
   private initCodeArea() {
-    if (this.codeArea === null) {
-      this.codeArea = document.getElementById('code') as HTMLInputElement;
+    if (this.el === null) {
+      this.el = document.getElementById('code') as HTMLInputElement;
     }
   }
   load(): string {
     this.initCodeArea();
-    if (this.codeArea != null) {
-      return this.codeArea.value;
+    if (this.el !== null) {
+      return this.el.value;
     }
     return '';
   }
   save(value: string) {
     this.initCodeArea();
-    if (this.codeArea != null) {
-      this.codeArea.value = value;
+    if (this.el !== null) {
+      this.el.value = value;
     }
   }
 }

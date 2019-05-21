@@ -5,7 +5,9 @@ import Tabs from './components/Tabs';
 import { initStore, StoreContext } from './store';
 import repo from './repository';
 import { Editor } from './editor';
+import { initDOM } from './dom';
 
+initDOM();
 const store = initStore(repo.load());
 new Editor(store);
 
